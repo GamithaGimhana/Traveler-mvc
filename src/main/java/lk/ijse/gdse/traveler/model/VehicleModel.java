@@ -71,7 +71,7 @@ public class VehicleModel {
     }
 
     public ArrayList<String> getAllVehicleIds(String selectedVehicleModel) throws SQLException {
-        ResultSet rst = CrudUtil.execute("select vehicle_id from vehicle where model=?", selectedVehicleModel);
+        ResultSet rst = CrudUtil.execute("select vehicle_id from vehicle where model=? and availability_status=true", selectedVehicleModel);
 
         ArrayList<String> vehicleIds = new ArrayList<>();
 
@@ -122,17 +122,28 @@ public class VehicleModel {
         return null;
     }
 
-    public boolean updateVehicleList(ArrayList<VehicleDTO> vehicleDTOS) throws SQLException {
-        // Iterate through each order detail in the list
-        for (VehicleDTO vehicleDTO : vehicleDTOS) {
-            // @isOrderDetailsSaved: Saves the individual order detail
-            boolean isVehicleUpdated = updateVehicle(vehicleDTO);
-            if (!isVehicleUpdated) {
-                // Return false if saving any order detail fails
-                return false;
-            }
-        }
-        // Return true if all order details are saved and item quantities updated successfully
-        return true;
+//    public boolean updateVehicleList(ArrayList<VehicleDTO> vehicleDTOS) throws SQLException {
+//        // Iterate through each order detail in the list
+//        for (VehicleDTO vehicleDTO : vehicleDTOS) {
+//            // @isOrderDetailsSaved: Saves the individual order detail
+//            boolean isVehicleUpdated = updateVehicle(vehicleDTO);
+//            if (!isVehicleUpdated) {
+//                System.out.println("Vehicle is not updated");
+//                // Return false if saving any order detail fails
+//                return false;
+//            }
+//        }
+//        System.out.println("Vehicle is updated");
+//        // Return true if all order details are saved and item quantities updated successfully
+//        return true;
+//    }
+
+    public boolean updateVehicleList(String vehicleId, boolean status) throws SQLException {
+        System.out.println("Vehicle is updated");
+        return CrudUtil.execute(
+                "update vehicle set availability_status = ? where vehicle_id = ?",
+                status,
+                vehicleId
+        );
     }
 }

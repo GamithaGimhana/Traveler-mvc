@@ -2,7 +2,6 @@ package lk.ijse.gdse.traveler.dto;
 
 import lombok.*;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -19,7 +18,4 @@ public class VehicleRentDTO {
     private LocalDate returnDate;
     private double rentalCost;
     private boolean vRentalStatus;
-
-    //private ArrayList<VehicleDTO> vehicleDTOS;
-
 }

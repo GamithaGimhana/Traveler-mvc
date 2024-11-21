@@ -171,7 +171,7 @@ public class VehicleRentController implements Initializable {
                     bookVehicleTM.getRentalDate(),
                     bookVehicleTM.getReturnDate(),
                     bookVehicleTM.getCost(),
-                    true
+                    false
             );
             vehicleRentDTOS.add(vehicleRentDTO);
         }
@@ -321,10 +321,15 @@ public class VehicleRentController implements Initializable {
 
         try {
             ArrayList<String> vehicleIds = vehicleModel.getAllVehicleIds(selectedVehicleModel);
-            ObservableList<String> vehicleIdObservableList = FXCollections.observableArrayList(vehicleIds);
-            cmbVId.setItems(vehicleIdObservableList);
+            if (!vehicleIds.isEmpty()) {
+                ObservableList<String> vehicleIdObservableList = FXCollections.observableArrayList(vehicleIds);
+                cmbVId.setItems(vehicleIdObservableList);
 
-            System.out.println("Vehicle IDs loaded: " + vehicleIdObservableList);
+                System.out.println("Vehicle IDs loaded: " + vehicleIdObservableList);
+            } else {
+                new Alert(Alert.AlertType.ERROR, "All vehicles are fully booked on this model!").show();
+                cmbVId.setDisable(true);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Error loading vehicle IDs: " + e.getMessage()).show();
