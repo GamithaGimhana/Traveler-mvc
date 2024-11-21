@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.traveler.controller.TripController">
+<AnchorPane minHeight="768.0" minWidth="816.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.traveler.controller.TripController">
    <children>
-      <VBox prefHeight="500.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #D8DFE9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="500.0" prefWidth="600.0" spacing="15.0" style="-fx-background-color: #D8DFE9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox minHeight="226.0" minWidth="560.0" spacing="10.0" VBox.vgrow="ALWAYS">
+            <VBox minHeight="226.0" minWidth="560.0" spacing="15.0" VBox.vgrow="ALWAYS">
                <children>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="160.0" prefHeight="27.2" VBox.vgrow="ALWAYS">
                      <children>
@@ -65,7 +65,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="146.0" text="Traveler Id" HBox.hgrow="ALWAYS">
+                              <Label prefHeight="17.0" prefWidth="145.0" text="Traveler Id" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
@@ -73,14 +73,14 @@
                               <ComboBox fx:id="cmbTravelerId" onAction="#cmbTravelerOnAction" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT">
+                        <HBox alignment="CENTER_LEFT" prefWidth="450.0">
                            <children>
-                              <Label prefWidth="150.0" text="Traveler's name" HBox.hgrow="ALWAYS">
+                              <Label prefHeight="17.0" prefWidth="169.0" text="Traveler's name" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lblTravelerName" prefWidth="150.0" text="name">
+                              <Label fx:id="lblTravelerName" prefHeight="17.0" prefWidth="282.0" text="name">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
@@ -95,45 +95,45 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="100.0" prefHeight="20.0" prefWidth="560.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="100.0" prefHeight="20.0" prefWidth="560.0" spacing="20.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <HBox prefHeight="26.0" prefWidth="277.0">
+                        <HBox prefHeight="34.0" prefWidth="301.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="136.0" text="Vehicle Type">
+                              <Label prefHeight="17.0" prefWidth="145.0" text="Vehicle Type">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cmbVType" onAction="#cmbVTypeOnAction" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                              <ComboBox fx:id="cmbVType" onAction="#cmbVTypeOnAction" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="277.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="331.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="135.0" text="Vehicle Model" HBox.hgrow="ALWAYS">
+                              <Label prefHeight="17.0" prefWidth="189.0" text="Vehicle Model" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cmbVModel" onAction="#cmbVModelOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                              <ComboBox fx:id="cmbVModel" onAction="#cmbVModelOnAction" prefHeight="26.0" prefWidth="180.0" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
                            </children>
                         </HBox>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="136.0" minHeight="21.0" prefHeight="21.0" prefWidth="560.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="136.0" minHeight="21.0" prefHeight="21.0" prefWidth="560.0" spacing="20.0" VBox.vgrow="ALWAYS">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="300.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="133.0" text="Vehicle Id" HBox.hgrow="ALWAYS">
+                              <Label prefHeight="17.0" prefWidth="145.0" text="Vehicle Id" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cmbVId" onAction="#cmbVIdOnAction" prefHeight="26.0" prefWidth="148.0" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                              <ComboBox fx:id="cmbVId" onAction="#cmbVIdOnAction" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="301.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="332.0">
                            <children>
-                              <Label prefWidth="150.0" text="License Plate Number" HBox.hgrow="ALWAYS">
+                              <Label prefHeight="17.0" prefWidth="191.0" text="License Plate Number" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
@@ -147,38 +147,38 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="30.0" prefWidth="560.0" spacing="10.0" style="-fx-border-color: #000; -fx-border-width: 0 0 1px 0;" VBox.vgrow="ALWAYS">
+                  <HBox prefHeight="30.0" prefWidth="560.0" spacing="20.0" style="-fx-border-color: #000; -fx-border-width: 0 0 1px 0;" VBox.vgrow="ALWAYS">
                      <children>
                         <HBox>
                            <children>
-                              <Label prefHeight="26.0" prefWidth="134.0" text="Start Date">
+                              <Label prefHeight="26.0" prefWidth="145.0" text="Start Date">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <DatePicker fx:id="dateStart" onAction="#dateStartOnAction" prefHeight="25.0" prefWidth="150.0" />
+                              <DatePicker fx:id="dateStart" onAction="#dateStartOnAction" prefHeight="25.0" prefWidth="159.0" />
                            </children>
                         </HBox>
                         <HBox layoutX="10.0" layoutY="10.0">
                            <children>
-                              <Label prefHeight="26.0" prefWidth="134.0" text="End Date">
+                              <Label prefHeight="26.0" prefWidth="168.0" text="End Date">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <DatePicker fx:id="dateEnd" onAction="#dateEndOnAction" prefHeight="25.0" prefWidth="150.0" />
+                              <DatePicker fx:id="dateEnd" onAction="#dateEndOnAction" prefHeight="25.0" prefWidth="160.0" />
                            </children>
                         </HBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <Label prefHeight="17.0" prefWidth="131.0" text="Language" HBox.hgrow="ALWAYS">
+                        <Label prefHeight="17.0" prefWidth="145.0" text="Language" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="cmbLang" onAction="#cmbLangOnAction" prefHeight="26.0" prefWidth="144.0" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                        <ComboBox fx:id="cmbLang" onAction="#cmbLangOnAction" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="560.0" spacing="20.0" style="-fx-border-color: #000; -fx-border-width: 0 0 1px 0;">

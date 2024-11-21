@@ -26,6 +26,9 @@ public class MenuController {
     private AnchorPane ancMenuPage;
 
     @FXML
+    private Button btnAbout;
+
+    @FXML
     private Button btnDetails;
 
     @FXML
@@ -42,6 +45,11 @@ public class MenuController {
 
     @Setter
     private String userType; // Store if admin or cashier
+
+    @FXML
+    void btnAboutOnAction(ActionEvent event) {
+        navigateTo("/view/aboutFx.fxml");
+    }
 
     @FXML
     void btnDetailsOnAction(ActionEvent event) {

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ancVehicleRent" minHeight="600.0" minWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.traveler.controller.VehicleRentController">
+<AnchorPane fx:id="ancVehicleRent" minHeight="768.0" minWidth="816.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.traveler.controller.VehicleRentController">
    <children>
       <VBox prefHeight="500.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #D8DFE9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ancGuideAssignment" minHeight="600.0" minWidth="600.0" style="-fx-background-color: #D8DFE9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.traveler.controller.GuideAssignmentController">
+<AnchorPane fx:id="ancGuideAssignment" minHeight="768.0" minWidth="816.0" style="-fx-background-color: #D8DFE9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.traveler.controller.GuideAssignmentController">
    <children>
       <VBox prefHeight="500.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: #D8DFE9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="560.0" prefHeight="229.0" prefWidth="560.0" spacing="10.0" VBox.vgrow="ALWAYS">
+            <VBox alignment="TOP_CENTER" minHeight="0.0" minWidth="560.0" prefHeight="229.0" prefWidth="560.0" spacing="15.0" VBox.vgrow="ALWAYS">
                <children>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="160.0" prefHeight="27.2">
                      <children>
@@ -177,7 +177,7 @@
                   </HBox>
                </children>
             </VBox>
-            <TableView fx:id="tblBooking" onMouseClicked="#onClickTable" prefHeight="325.0" prefWidth="560.0">
+            <TableView fx:id="tblBooking" onMouseClicked="#onClickTable" prefHeight="469.0" prefWidth="776.0">
                <columns>
                   <TableColumn fx:id="colRequestId" prefWidth="75.0" text="Request ID" />
                   <TableColumn fx:id="colTravelerId" prefWidth="75.0" text="Traveler ID" />

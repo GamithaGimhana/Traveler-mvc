@@ -4,14 +4,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse.traveler.dto.GuideDTO;
 import lk.ijse.gdse.traveler.dto.tm.GuideTM;
 import lk.ijse.gdse.traveler.model.GuideModel;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,6 +22,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class GuideController implements Initializable {
+
+    @FXML
+    private AnchorPane ancGuide;
 
     @FXML
     private Button btnDelete;
@@ -179,7 +185,7 @@ public class GuideController implements Initializable {
                     status
             );
 
-            boolean isSaved = guideModel.saveGuide(guideDTO);
+            boolean isSaved = guideModel.updateGuide(guideDTO);
             if (isSaved) {
                 refreshPage();
                 new Alert(Alert.AlertType.INFORMATION, "Guide updated...!").show();
@@ -197,6 +203,16 @@ public class GuideController implements Initializable {
     @FXML
     void btnSendMailOnAction(ActionEvent event) {
 
+    }
+
+    @FXML
+    void guideLanguageOnAction(ActionEvent event) {
+        navigateTo("/view/guideLanguagesFx.fxml");
+    }
+
+    @FXML
+    void langOnAction(ActionEvent event) {
+        navigateTo("/view/languageFx.fxml");
     }
 
     @FXML
@@ -278,5 +294,21 @@ public class GuideController implements Initializable {
     public void loadNextGuideId() throws SQLException {
         String nextGuideId = guideModel.getNextGuideId();
         lblGuideId.setText(nextGuideId);
+    }
+
+    public void navigateTo(String fxmlPath) {
+        try {
+            ancGuide.getChildren().clear();
+            AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
+
+//          Bind the loaded FXML to all edges of the content anchorPane
+            load.prefWidthProperty().bind(ancGuide.widthProperty());
+            load.prefHeightProperty().bind(ancGuide.heightProperty());
+
+            ancGuide.getChildren().add(load);
+        } catch (IOException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to load page!").show();
+        }
     }
 }

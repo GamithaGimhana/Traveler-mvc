@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ancManagement" minHeight="600.0" minWidth="600.0" style="-fx-background-color: #1C1C1C;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.traveler.controller.ManagementController">
+<AnchorPane fx:id="ancManagement" minHeight="768.0" minWidth="816.0" style="-fx-background-color: #1C1C1C;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.traveler.controller.ManagementController">
    <children>
-      <VBox alignment="CENTER" minHeight="600.0" minWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" minHeight="768.0" minWidth="816.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="lblManagement" alignment="CENTER" minHeight="50.0" minWidth="600.0" text="Management" textFill="#FFFFFF" VBox.vgrow="ALWAYS">
                <font>
