@@ -38,6 +38,9 @@ public class MenuController {
     private Button btnManagement;
 
     @FXML
+    private Button btnPayment;
+
+    @FXML
     private Button btnRequest;
 
     @FXML
@@ -75,6 +78,11 @@ public class MenuController {
         load.prefHeightProperty().bind(ancContent.heightProperty());
 
         ancContent.getChildren().add(load);
+    }
+
+    @FXML
+    void btnPaymentOnAction(ActionEvent event) {
+        navigateTo("/view/paymentFx.fxml");
     }
 
     @FXML

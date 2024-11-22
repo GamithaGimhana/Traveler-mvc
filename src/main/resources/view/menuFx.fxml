@@ -56,6 +56,14 @@
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
+                  <Button fx:id="btnPayment" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="344.0" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 5; -fx-background-color: #333333;" text="Payments" textAlignment="CENTER" textFill="#FFFFFF" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
                   <Button fx:id="btnAbout" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="344.0" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#btnAboutOnAction" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 5; -fx-background-color: #333333;" text="About" textAlignment="CENTER" textFill="#FFFFFF" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="18.0" />

@@ -54,4 +54,31 @@ public class RequestModel {
         return CrudUtil.execute("delete from request where request_id=?", requestId);
     }
 
+    public ArrayList<String> getAllRequestIds(String selectedTravelerId) throws SQLException {
+        ResultSet rst = CrudUtil.execute("select request_id from request where traveler_id=?", selectedTravelerId);
+
+        ArrayList<String> requestIds = new ArrayList<>();
+
+        while (rst.next()) {
+            requestIds.add(rst.getString(1));
+        }
+
+        return requestIds;
+    }
+
+    public RequestDTO findById(String selectedRequestId) throws SQLException {
+        ResultSet rst = CrudUtil.execute("select * from request where request_id=?", selectedRequestId);
+
+        if (rst.next()) {
+            return new RequestDTO(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getDate(3),
+                    rst.getString(4),
+                    rst.getString(5)
+            );
+        }
+        return null;
+    }
+
 }
