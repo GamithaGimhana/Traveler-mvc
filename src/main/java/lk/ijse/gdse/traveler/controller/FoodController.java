@@ -63,11 +63,6 @@ public class FoodController {
     }
 
     @FXML
-    void btngenerateAllFoodReportOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void onClickTable(MouseEvent event) {
 
     }

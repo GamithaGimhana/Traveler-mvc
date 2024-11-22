@@ -63,11 +63,6 @@ public class AccomodationController {
     }
 
     @FXML
-    void btngenerateAllAccomodationReportOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void onClickTable(MouseEvent event) {
 
     }

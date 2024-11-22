@@ -131,18 +131,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" layoutX="30.0" layoutY="200.0" spacing="30.0">
-                     <children>
-                        <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btngenerateAllGuideReportOnAction" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: #04566E;" text="Generate All Guides Report" textFill="WHITE" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="Calibri Bold" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="CLOSED_HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="30.0" layoutY="200.0" spacing="30.0" />
                   <HBox alignment="CENTER_RIGHT" spacing="30.0">
                      <children>
                         <Button layoutX="290.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#langOnAction" prefHeight="26.0" prefWidth="363.0" style="-fx-background-color: #04566E;" text="Add new Lnguage" textFill="WHITE" HBox.hgrow="ALWAYS">

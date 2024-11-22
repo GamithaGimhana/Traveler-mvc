@@ -10,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse.traveler.dto.PaymentDTO;
 import lk.ijse.gdse.traveler.dto.TravelerDTO;
-import lk.ijse.gdse.traveler.dto.VehicleDTO;
 import lk.ijse.gdse.traveler.dto.tm.PaymentTM;
 import lk.ijse.gdse.traveler.model.PaymentModel;
 import lk.ijse.gdse.traveler.model.RequestModel;

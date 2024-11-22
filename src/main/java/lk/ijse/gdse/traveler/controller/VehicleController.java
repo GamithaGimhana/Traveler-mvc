@@ -218,11 +218,6 @@ public class VehicleController implements Initializable {
     }
 
     @FXML
-    void btngenerateAllVehicleReportOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void onClickTable(MouseEvent event) {
         VehicleTM vehicleTM = tblVehicle.getSelectionModel().getSelectedItem();
         if (vehicleTM != null) {

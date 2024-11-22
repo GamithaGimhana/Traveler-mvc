@@ -116,7 +116,7 @@
                         <Cursor fx:constant="CLOSED_HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnSave" layoutX="462.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSaveOnAction" prefWidth="80.0" style="-fx-background-color: #04566E;" text="Save" textFill="WHITE">
+                  <Button fx:id="btnSave" layoutX="462.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="168.0" style="-fx-background-color: #04566E;" text="Save" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="14.0" />
                      </font>
@@ -126,18 +126,7 @@
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" layoutX="30.0" layoutY="200.0" spacing="30.0">
-               <children>
-                  <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btngenerateAllAttractionReportOnAction" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: #04566E;" text="Generate All Attraction Report" textFill="WHITE" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="Calibri Bold" size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="CLOSED_HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="30.0" layoutY="200.0" spacing="30.0" />
             <TableView fx:id="tblAttraction" onMouseClicked="#onClickTable" prefHeight="430.0" prefWidth="776.0" VBox.vgrow="ALWAYS">
                <columns>
                   <TableColumn fx:id="colAttractionId" prefWidth="75.0" text="Attraction ID" />

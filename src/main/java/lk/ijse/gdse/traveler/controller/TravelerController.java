@@ -251,11 +251,6 @@ public class TravelerController implements Initializable {
     }
 
     @FXML
-    void btngenerateAllTravelerReportOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void btnSendMailOnAction(ActionEvent event) {
         TravelerTM selectedItem = tblTraveler.getSelectionModel().getSelectedItem();
         if (selectedItem == null) {
@@ -265,7 +260,7 @@ public class TravelerController implements Initializable {
 
         try {
             // Load the mail dialog from FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SendMailView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/sendMailFx.fxml"));
             Parent load = loader.load();
 
             SendMailController sendMailController = loader.getController();

@@ -132,7 +132,7 @@
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnSave" layoutX="462.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSaveOnAction" prefWidth="80.0" style="-fx-background-color: #04566E;" text="Save" textFill="WHITE">
+                        <Button fx:id="btnSave" layoutX="462.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color: #04566E;" text="Save" textFill="WHITE">
                            <font>
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
@@ -144,15 +144,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="30.0" layoutY="200.0" spacing="30.0">
                      <children>
-                        <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btngenerateAllTravelerReportOnAction" prefHeight="27.0" prefWidth="282.0" style="-fx-background-color: #04566E;" text="Generate All Travelers Report" textFill="WHITE" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="Calibri Bold" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="CLOSED_HAND" />
-                           </cursor>
-                        </Button>
-                        <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSendMailOnAction" prefHeight="26.0" prefWidth="152.0" style="-fx-background-color: #04566E;" text="Send a Mail" textFill="WHITE">
+                        <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSendMailOnAction" prefHeight="26.0" prefWidth="152.0" style="-fx-background-color: #04566E;" text="Send a Mail" textFill="WHITE" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Calibri Bold" size="14.0" />
                            </font>

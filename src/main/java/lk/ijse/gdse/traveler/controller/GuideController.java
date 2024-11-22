@@ -196,11 +196,6 @@ public class GuideController implements Initializable {
     }
 
     @FXML
-    void btngenerateAllGuideReportOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void guideLanguageOnAction(ActionEvent event) {
         navigateTo("/view/guideLanguagesFx.fxml");
     }

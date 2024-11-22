@@ -262,7 +262,7 @@ public class AdminController implements Initializable {
 
         try {
             // Load the mail dialog from FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SendMailView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/sendMailFx.fxml"));
             Parent load = loader.load();
 
             SendMailController sendMailController = loader.getController();
@@ -285,11 +285,6 @@ public class AdminController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Fail to load ui..!");
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    void btngenerateAllAdminReportOnAction(ActionEvent event) {
-
     }
 
     @FXML

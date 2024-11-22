@@ -69,11 +69,6 @@ public class AttractionController {
     }
 
     @FXML
-    void btngenerateAllAttractionReportOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void onClickTable(MouseEvent event) {
 
     }

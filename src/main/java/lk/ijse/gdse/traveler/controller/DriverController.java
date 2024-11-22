@@ -190,11 +190,6 @@ public class DriverController implements Initializable {
     }
 
     @FXML
-    void btngenerateAllDriversReportOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void onClickTable(MouseEvent event) {
         DriverTM driverTM = tblDriver.getSelectionModel().getSelectedItem();
         if (driverTM != null) {

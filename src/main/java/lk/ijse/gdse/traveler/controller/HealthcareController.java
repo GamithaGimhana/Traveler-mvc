@@ -64,11 +64,6 @@ public class HealthcareController {
     }
 
     @FXML
-    void btngenerateAllHealthcareReportOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void onClickTable(MouseEvent event) {
 
     }
