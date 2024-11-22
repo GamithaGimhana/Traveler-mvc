@@ -201,11 +201,6 @@ public class GuideController implements Initializable {
     }
 
     @FXML
-    void btnSendMailOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void guideLanguageOnAction(ActionEvent event) {
         navigateTo("/view/guideLanguagesFx.fxml");
     }

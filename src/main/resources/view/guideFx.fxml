@@ -141,14 +141,6 @@
                               <Cursor fx:constant="CLOSED_HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnSendMailOnAction" prefHeight="26.0" prefWidth="371.0" style="-fx-background-color: #04566E;" text="Send a Mail" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri Bold" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="CLOSED_HAND" />
-                           </cursor>
-                        </Button>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" spacing="30.0">

@@ -195,11 +195,6 @@ public class DriverController implements Initializable {
     }
 
     @FXML
-    void btnSendMailOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void onClickTable(MouseEvent event) {
         DriverTM driverTM = tblDriver.getSelectionModel().getSelectedItem();
         if (driverTM != null) {
