@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import lombok.*;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -14,7 +15,7 @@ public class BookGuideTM {
     private String requestId;
     private String travelerId;
     private String guideId;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private Button removeBtn;
 }

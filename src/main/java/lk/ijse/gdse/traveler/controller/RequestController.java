@@ -147,6 +147,7 @@ public class RequestController implements Initializable {
                     // Passing user type
                     TripController controller = loader.getController();
                     controller.setRequestId(reqId);
+                    controller.setTravelerId(travelerId);
 
                     load.prefWidthProperty().bind(ancRequest.widthProperty());
                     load.prefHeightProperty().bind(ancRequest.heightProperty());
@@ -160,6 +161,7 @@ public class RequestController implements Initializable {
                     // Passing user type
                     VehicleRentController controller = loader.getController();
                     controller.setRequestId(reqId);
+                    controller.setTravelerId(travelerId);
 
                     load.prefWidthProperty().bind(ancRequest.widthProperty());
                     load.prefHeightProperty().bind(ancRequest.heightProperty());
@@ -173,6 +175,7 @@ public class RequestController implements Initializable {
                     // Passing user type
                     GuideAssignmentController controller = loader.getController();
                     controller.setRequestId(reqId);
+                    controller.setTravelerId(travelerId);
 
                     load.prefWidthProperty().bind(ancRequest.widthProperty());
                     load.prefHeightProperty().bind(ancRequest.heightProperty());

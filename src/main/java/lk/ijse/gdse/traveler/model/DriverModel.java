@@ -67,7 +67,7 @@ public class DriverModel {
     }
 
     public ArrayList<String> getAllDriverIds() throws SQLException {
-        ResultSet rst = CrudUtil.execute("select driver_id from driver");
+        ResultSet rst = CrudUtil.execute("select driver_id from driver where availability_status=true");
 
         ArrayList<String> driverIds = new ArrayList<>();
 
@@ -91,5 +91,14 @@ public class DriverModel {
             );
         }
         return null;
+    }
+
+    public boolean updateDriverList(String driverId, boolean status) throws SQLException {
+        System.out.println("Driver is updated");
+        return CrudUtil.execute(
+                "update driver set availability_status = ? where driver_id = ?",
+                status,
+                driverId
+        );
     }
 }

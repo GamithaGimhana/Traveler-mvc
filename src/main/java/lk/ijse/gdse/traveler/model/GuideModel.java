@@ -66,6 +66,18 @@ public class GuideModel {
         return CrudUtil.execute("delete from guide where guide_id=?", guideId);
     }
 
+    public ArrayList<String> getAllGuideIds(String selectedLanguageId) throws SQLException {
+        ResultSet rst = CrudUtil.execute("select g.guide_id from guide g join guide_languages gL on g.guide_id = gL.guide_id where gL.language_id = ? and g.availability_status=true", selectedLanguageId);
+
+        ArrayList<String> guideIds = new ArrayList<>();
+
+        while (rst.next()) {
+            guideIds.add(rst.getString(1));
+        }
+
+        return guideIds;
+    }
+
     public ArrayList<String> getAllGuideIds() throws SQLException {
         ResultSet rst = CrudUtil.execute("select guide_id from guide");
 
@@ -91,5 +103,14 @@ public class GuideModel {
             );
         }
         return null;
+    }
+
+    public boolean updateGuideList(String guideId, boolean status) throws SQLException {
+        System.out.println("Guide is updated");
+        return CrudUtil.execute(
+                "update guide set availability_status = ? where guide_id = ?",
+                status,
+                guideId
+        );
     }
 }

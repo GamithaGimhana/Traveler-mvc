@@ -7,10 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.StringConverter;
+import lk.ijse.gdse.traveler.dto.*;
 import lk.ijse.gdse.traveler.dto.tm.BookGuideTM;
+import lk.ijse.gdse.traveler.model.GuideAssignmentModel;
+import lk.ijse.gdse.traveler.model.GuideModel;
+import lk.ijse.gdse.traveler.model.LanguageModel;
 import lk.ijse.gdse.traveler.model.TravelerModel;
 
 import java.net.URL;
@@ -46,13 +49,13 @@ public class GuideAssignmentController implements Initializable {
     private AnchorPane ancGuideAssignment;
 
     @FXML
-    private Button btnDelete;
+    private Button btnAddToBooking;
 
     @FXML
-    private ComboBox<?> cmbGuideId;
+    private ComboBox<String> cmbGuideId;
 
     @FXML
-    private ComboBox<?> cmbLang;
+    private ComboBox<String> cmbLangId;
 
     @FXML
     private ComboBox<String> cmbTravelerId;
@@ -61,19 +64,19 @@ public class GuideAssignmentController implements Initializable {
     private TableColumn<?, ?> colAction;
 
     @FXML
-    private TableColumn<?, ?> colEndDate;
+    private TableColumn<BookGuideTM, LocalDate> colEndDate;
 
     @FXML
-    private TableColumn<?, ?> colGuideId;
+    private TableColumn<BookGuideTM, String> colGuideId;
 
     @FXML
-    private TableColumn<?, ?> colRequestId;
+    private TableColumn<BookGuideTM, String> colRequestId;
 
     @FXML
-    private TableColumn<?, ?> colStartDate;
+    private TableColumn<BookGuideTM, LocalDate> colStartDate;
 
     @FXML
-    private TableColumn<?, ?> colTravelerId;
+    private TableColumn<BookGuideTM, String> colTravelerId;
 
     @FXML
     private DatePicker dateEnd;
@@ -94,43 +97,149 @@ public class GuideAssignmentController implements Initializable {
     private Label requestDate;
 
     @FXML
+    private Label lblLanguage;
+
+    @FXML
     private TableView<BookGuideTM> tblBooking;
+
+    private String traveler;
 
     private String requestId;
 
     private final TravelerModel travelerModel = new TravelerModel();
+    private final GuideModel guideModel = new GuideModel();
+    private final LanguageModel languageModel = new LanguageModel();
+    private final GuideAssignmentModel guideAssignmentModel = new GuideAssignmentModel();
 
     private final ObservableList<BookGuideTM> bookGuideTMS = FXCollections.observableArrayList();
 
 
     @FXML
-    void btnBookGuideOnAction(ActionEvent event) {
+    void btnAddToBookingOnAction(ActionEvent event) {
+        String rId = lblRequestId.getText();
+        String tId = cmbTravelerId.getValue();
+        String selectedLanguageId = cmbLangId.getValue();
+        String gId = cmbGuideId.getValue();
+        LocalDate startDate = dateStart.getValue();
+        LocalDate endDate = dateEnd.getValue();
 
+        if (selectedLanguageId == null) {
+            new Alert(Alert.AlertType.ERROR, "Please select a language!").show();
+            return;
+        }
+
+        if (startDate == null || endDate == null) {
+            new Alert(Alert.AlertType.ERROR, "Please select both start and end dates.").show();
+            return;
+        }
+
+        if (!startDate.isBefore(endDate)) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Date Selection. The start date must be before the end date.").show();
+            return;
+        }
+
+        Button btn = new Button("Remove");
+        BookGuideTM newBookGuideTM = new BookGuideTM(
+                rId,
+                gId,
+                tId,
+                startDate,
+                endDate,
+                btn
+        );
+
+        btn.setOnAction(actionEvent -> {
+            bookGuideTMS.remove(newBookGuideTM);
+            tblBooking.refresh();
+        });
+
+        bookGuideTMS.add(newBookGuideTM);
+        tblBooking.refresh();
+
+        dateStart.setValue(null);
+        dateEnd.setValue(null);
+        cmbTravelerId.getSelectionModel().clearSelection();
+        cmbLangId.getSelectionModel().clearSelection();
+        cmbGuideId.getSelectionModel().clearSelection();
+        lblTravelerName.setText("");
+        lblLanguage.setText("");
+        lblGuideName.setText("");
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
+    void btnBookGuideOnAction(ActionEvent event) throws SQLException {
+        if (tblBooking.getItems().isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please add guides to the cart!").show();
+            return;
+        }
 
+        ArrayList<GuideAssignmentDTO> guideAssignmentDTOS = new ArrayList<>();
+        for (BookGuideTM bookGuideTM : bookGuideTMS) {
+            String requestId = bookGuideTM.getRequestId();
+
+            // Check if request_id exists in the request table
+            if (!guideAssignmentModel.checkRequestIdExists(requestId)) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Request ID: " + requestId).show();
+                return;
+            }
+
+            GuideAssignmentDTO guideAssignmentDTO = new GuideAssignmentDTO(
+                    requestId,
+                    bookGuideTM.getGuideId(),
+                    bookGuideTM.getTravelerId(),
+                    bookGuideTM.getStartDate(),
+                    bookGuideTM.getEndDate(),
+                    false
+            );
+            guideAssignmentDTOS.add(guideAssignmentDTO);
+        }
+
+        boolean isSaved = true;
+        for (GuideAssignmentDTO guideAssignmentDTO : guideAssignmentDTOS) {
+            isSaved &= guideAssignmentModel.saveGuideAssignment(guideAssignmentDTO);
+        }
+
+        if (isSaved) {
+            new Alert(Alert.AlertType.INFORMATION, "Booking saved!").show();
+            bookGuideTMS.clear();
+            tblBooking.refresh();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Booking failed!").show();
+        }
     }
 
     @FXML
-    void btnResetOnAction(ActionEvent event) {
-
+    void btnResetOnAction(ActionEvent event) throws SQLException {
+        refreshPage();
     }
 
     @FXML
-    void cmbGuideOnAction(ActionEvent event) {
-
+    void cmbGuideOnAction(ActionEvent event) throws SQLException {
+        String selectedGuideId = cmbGuideId.getSelectionModel().getSelectedItem();
+        GuideDTO guideDTO = guideModel.findById(selectedGuideId);
+        if (guideDTO != null) {
+            lblGuideName.setText(guideDTO.getName());
+        }
     }
 
     @FXML
-    void cmbLangOnAction(ActionEvent event) {
-
+    void cmbLangIdOnAction(ActionEvent event) throws SQLException {
+        String selectedLanguageId = cmbLangId.getSelectionModel().getSelectedItem();
+        LanguageDTO languageDTO = languageModel.findById(selectedLanguageId);
+        if (languageDTO != null) {
+            lblLanguage.setText(languageDTO.getLanguage());
+        }
+        cmbGuideId.setDisable(false);
+        loadGuideIds(selectedLanguageId);
     }
 
     @FXML
-    void cmbTravelerOnAction(ActionEvent event) {
-
+    void cmbTravelerOnAction(ActionEvent event) throws SQLException {
+        String selectedTravelerId = cmbTravelerId.getSelectionModel().getSelectedItem();
+        TravelerDTO travelerDTO = travelerModel.findById(selectedTravelerId);
+        if (travelerDTO != null) {
+            lblTravelerName.setText(travelerDTO.getName());
+        }
     }
 
     @FXML
@@ -140,12 +249,7 @@ public class GuideAssignmentController implements Initializable {
 
     @FXML
     void dateStartOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onClickTable(MouseEvent event) {
-
+        dateEnd.setDisable(false);
     }
 
     public void setRequestId(String requestId) {
@@ -154,13 +258,19 @@ public class GuideAssignmentController implements Initializable {
         lblRequestId.setText(requestId);
     }
 
+    public void setTravelerId(String travelerId) {
+        System.out.println("Traveler ID received: " + travelerId);
+        this.traveler = travelerId;
+        cmbTravelerId.setValue(travelerId);
+    }
+
     private void setCellValues() {
         try {
             System.out.println("Setting table column values...");
 
             colRequestId.setCellValueFactory(new PropertyValueFactory<>("requestId"));
             colTravelerId.setCellValueFactory(new PropertyValueFactory<>("travelerId"));
-            colGuideId.setCellValueFactory(new PropertyValueFactory<>("vehicleId"));
+            colGuideId.setCellValueFactory(new PropertyValueFactory<>("guideId"));
             colStartDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
             colEndDate.setCellValueFactory(new PropertyValueFactory<>("endDate"));
             colAction.setCellValueFactory(new PropertyValueFactory<>("removeBtn"));
@@ -179,8 +289,9 @@ public class GuideAssignmentController implements Initializable {
         try {
             requestDate.setText(LocalDate.now().toString());
 
-            System.out.println("Loading traveler IDs...");
+            System.out.println("Loading IDs...");
             loadTravelerIds();
+            loadLanguageIds();
 
             cmbTravelerId.getSelectionModel().clearSelection();
             lblTravelerName.setText("");
@@ -207,6 +318,36 @@ public class GuideAssignmentController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Error loading traveler IDs: " + e.getMessage()).show();
+        }
+    }
+
+    private void loadLanguageIds() throws SQLException {
+        System.out.println("Loading language IDs...");
+
+        try {
+            ArrayList<String> languageIds = languageModel.getAllLangIds();
+            ObservableList<String> languageIdsObservableList = FXCollections.observableArrayList(languageIds);
+            cmbLangId.setItems(languageIdsObservableList);
+
+            System.out.println("language IDs loaded: " + languageIdsObservableList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Error loading language IDs: " + e.getMessage()).show();
+        }
+    }
+
+    private void loadGuideIds(String selectedLanguageId) throws SQLException {
+        System.out.println("Loading guide IDs...");
+
+        try {
+            ArrayList<String> guideIds = guideModel.getAllGuideIds(selectedLanguageId);
+            ObservableList<String> guideIdsObservableList = FXCollections.observableArrayList(guideIds);
+            cmbGuideId.setItems(guideIdsObservableList);
+
+            System.out.println("guide IDs loaded: " + guideIdsObservableList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Error loading guide IDs: " + e.getMessage()).show();
         }
     }
 

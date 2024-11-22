@@ -90,6 +90,8 @@ public class VehicleRentController implements Initializable {
     @FXML
     private TableView<BookVehicleTM> tblBooking;
 
+    private String traveler;
+
     private String requestId;
 
     private final TravelerModel travelerModel = new TravelerModel();
@@ -126,7 +128,15 @@ public class VehicleRentController implements Initializable {
         double cost = priceForADay * rentedDays;
 
         Button btn = new Button("Remove");
-        BookVehicleTM newBookVehicleTM = new BookVehicleTM(rId, tId, selectedVehicleId, rentalDate, returnDate, cost, btn);
+        BookVehicleTM newBookVehicleTM = new BookVehicleTM(
+                rId,
+                tId,
+                selectedVehicleId,
+                rentalDate,
+                returnDate,
+                cost,
+                btn
+        );
 
         btn.setOnAction(actionEvent -> {
             bookVehicleTMS.remove(newBookVehicleTM);
@@ -286,6 +296,12 @@ public class VehicleRentController implements Initializable {
         lblAssignmentId.setText(requestId);
     }
 
+    public void setTravelerId(String travelerId) {
+        System.out.println("Traveler ID received: " + travelerId);
+        this.traveler = travelerId;
+        cmbTravelerId.setValue(travelerId);
+    }
+
     private void refreshPage() throws SQLException {
         System.out.println("Refreshing the page...");
 
@@ -293,10 +309,8 @@ public class VehicleRentController implements Initializable {
 //            lblAssignmentId.setText(vehicleRentModel.getNextVehicleRentId());
             assignmentDate.setText(LocalDate.now().toString());
 
-            System.out.println("Loading traveler IDs...");
+            System.out.println("Loading IDs...");
             loadTravelerIds();
-
-            System.out.println("Loading vehicle types...");
             loadVehicleTypes();
 
             cmbTravelerId.getSelectionModel().clearSelection();

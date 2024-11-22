@@ -138,6 +138,8 @@ public class GuideLanguagesController implements Initializable {
         if (languageDTO != null) {
             lblLanguage.setText(languageDTO.getLanguage());
         }
+        cmbGuideId.setDisable(false);
+        loadGuideIds();
     }
 
     @FXML
@@ -165,6 +167,7 @@ public class GuideLanguagesController implements Initializable {
         colLangId.setCellValueFactory(new PropertyValueFactory<>("langId"));
         colGuideId.setCellValueFactory(new PropertyValueFactory<>("guideId"));
 
+        cmbGuideId.setDisable(true);
         // inside initialize method
         try {
             refreshPage();
@@ -175,7 +178,6 @@ public class GuideLanguagesController implements Initializable {
     }
 
     private void refreshPage() throws SQLException {
-        loadGuideIds();
         loadLanguageIds();
         loadTableData();
 
@@ -217,6 +219,21 @@ public class GuideLanguagesController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Error loading languages IDs: " + e.getMessage()).show();
+        }
+    }
+
+    private void loadGuideIds(String selectedLanguageId) throws SQLException {
+        System.out.println("Loading guide IDs...");
+
+        try {
+            ArrayList<String> guideIds = guideModel.getAllGuideIds(selectedLanguageId);
+            ObservableList<String> guideIdsObservableList = FXCollections.observableArrayList(guideIds);
+            cmbGuideId.setItems(guideIdsObservableList);
+
+            System.out.println("Guide IDs loaded: " + guideIdsObservableList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Error loading guide IDs: " + e.getMessage()).show();
         }
     }
 

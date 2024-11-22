@@ -85,14 +85,28 @@
                         <Insets bottom="5.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT">
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
                      <children>
-                        <Label prefHeight="17.0" prefWidth="135.0" text="Language" HBox.hgrow="ALWAYS">
+                        <Label prefHeight="17.0" prefWidth="135.0" text="Language Id" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="cmbLang" onAction="#cmbLangOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                        <ComboBox fx:id="cmbLangId" onAction="#cmbLangIdOnAction" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #ffffff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label prefWidth="150.0" text="Language" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Calibri" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblLanguage" prefWidth="150.0" text="Language">
+                                 <font>
+                                    <Font name="Calibri" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="42.0" spacing="20.0">
@@ -147,37 +161,17 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="33.0" prefWidth="560.0" spacing="20.0">
-                     <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="26.0" prefWidth="250.0" style="-fx-background-color: #04566E;" text="Reset" textFill="WHITE" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="Calibri Bold" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="CLOSED_HAND" />
-                           </cursor>
-                        </Button>
-                        <Button fx:id="btnDelete" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="250.0" style="-fx-background-color: #04566E;" text="Delete" textFill="WHITE" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="Calibri Bold" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="CLOSED_HAND" />
-                           </cursor>
-                        </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnBookGuideOnAction" prefHeight="26.0" prefWidth="249.0" style="-fx-background-color: #04566E;" text="Book Guide" textFill="WHITE" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="Calibri Bold" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="CLOSED_HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </HBox>
                </children>
             </VBox>
-            <TableView fx:id="tblBooking" onMouseClicked="#onClickTable" prefHeight="469.0" prefWidth="776.0">
+            <Button fx:id="btnAddToBooking" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnAddToBookingOnAction" prefWidth="80.0" style="-fx-background-color: #3498db;" text="Add To Booking" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </Button>
+            <TableView fx:id="tblBooking" prefHeight="380.0" prefWidth="776.0">
                <columns>
                   <TableColumn fx:id="colRequestId" prefWidth="75.0" text="Request ID" />
                   <TableColumn fx:id="colTravelerId" prefWidth="75.0" text="Traveler ID" />
@@ -190,6 +184,26 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
+            <HBox alignment="CENTER" prefHeight="109.0" prefWidth="776.0" spacing="20.0">
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="26.0" prefWidth="250.0" style="-fx-background-color: #04566E;" text="Reset" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
+                  </Button>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnBookGuideOnAction" prefHeight="26.0" prefWidth="249.0" style="-fx-background-color: #04566E;" text="Book Guide" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
          </children>
          <padding>
             <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />

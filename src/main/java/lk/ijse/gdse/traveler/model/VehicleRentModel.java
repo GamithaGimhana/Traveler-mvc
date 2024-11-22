@@ -53,19 +53,6 @@ public class VehicleRentModel {
         }
     }
 
-//    public boolean saveVehicleRent(VehicleRentDTO vehicleRentDTO) throws SQLException {
-//        return CrudUtil.execute(
-//                "insert into rental_transaction values (?,?,?,?,?,?,?)",
-//                vehicleRentDTO.getRequestId(),
-//                vehicleRentDTO.getTravelerId(),
-//                vehicleRentDTO.getVehicleId(),
-//                vehicleRentDTO.getRentalDate(),
-//                vehicleRentDTO.getReturnDate(),
-//                vehicleRentDTO.getRentalCost(),
-//                vehicleRentDTO.isVRentalStatus()
-//        );
-//    }
-
     public boolean checkRequestIdExists(String requestId) throws SQLException {
         String query = "SELECT COUNT(*) FROM request WHERE request_id = ?";
         ResultSet rs = CrudUtil.execute(query, requestId);
