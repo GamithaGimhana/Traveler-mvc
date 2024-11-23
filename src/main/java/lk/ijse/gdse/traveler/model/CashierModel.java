@@ -93,7 +93,7 @@ public class CashierModel {
         }
 
         return CrudUtil.execute(
-                "update cashier set name=?, email=?, contact_number=?, username=?, password=? where cashier_id=?",
+                "update cashier set name=?, email=?, contact_number=?, username=?, password=?, admin_id=? where cashier_id=?",
                 cashierDTO.getName(),
                 cashierDTO.getEmail(),
                 cashierDTO.getContactNumber(),

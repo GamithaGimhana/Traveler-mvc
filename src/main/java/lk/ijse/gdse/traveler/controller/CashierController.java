@@ -174,9 +174,9 @@ public class CashierController implements Initializable {
                     name,
                     email,
                     contact,
-                    adminId,
                     username,
-                    password
+                    password,
+                    adminId
             );
 
             boolean isSaved = cashierModel.saveCashier(cashierDTO);
@@ -197,7 +197,6 @@ public class CashierController implements Initializable {
         String contact = txtContact.getText();
         String username = lblUsername.getText();
         String password = txtPassword.getText();
-        String confirmPassword = txtConfirmPassword.getText();
         String adminId = cmbAdminId.getSelectionModel().getSelectedItem();
 
         txtName.setStyle(txtName.getStyle() + ";-fx-border-color: #7367F0;");
@@ -215,7 +214,6 @@ public class CashierController implements Initializable {
         boolean isValidEmail = email.matches(emailPattern);
         boolean isValidContact = contact.matches(contactPattern);
         boolean isValidPassword = password.matches(passwordPattern);
-        boolean isValidConfirmPassword = confirmPassword.matches(passwordPattern);
 
         if (!isValidName) {
             System.out.println(txtName.getStyle());
@@ -231,29 +229,19 @@ public class CashierController implements Initializable {
             txtContact.setStyle(txtContact.getStyle() + ";-fx-border-color: red;");
         }
 
-        if (password.equals(confirmPassword)) {
-            if (!isValidPassword) {
-                txtPassword.setStyle(txtPassword.getStyle() + ";-fx-border-color: red;");
-            }
-
-            if (!isValidConfirmPassword) {
-                txtConfirmPassword.setStyle(txtConfirmPassword.getStyle() + ";-fx-border-color: red;");
-            }
-        } else {
+        if (!isValidPassword) {
             txtPassword.setStyle(txtPassword.getStyle() + ";-fx-border-color: red;");
-            txtConfirmPassword.setStyle(txtConfirmPassword.getStyle() + ";-fx-border-color: red;");
-            new Alert(Alert.AlertType.ERROR, "Confirm password must same as given Password...!").show();
         }
 
-        if (isValidName && isValidEmail && isValidContact && isValidPassword && isValidConfirmPassword) {
+        if (isValidName && isValidEmail && isValidContact && isValidPassword) {
             CashierDTO cashierDTO = new CashierDTO(
                     cashierId,
                     name,
                     email,
                     contact,
-                    adminId,
                     username,
-                    password
+                    password,
+                    adminId
             );
 
             boolean isSaved = cashierModel.updateCashier(cashierDTO);
