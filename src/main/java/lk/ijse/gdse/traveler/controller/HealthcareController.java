@@ -153,7 +153,7 @@ public class HealthcareController implements Initializable {
                     isAvailable
             );
 
-            boolean isSaved = healthcareModel.saveHealthcare(healthcareDTO);
+            boolean isSaved = healthcareModel.updateHealthcare(healthcareDTO);
             if (isSaved) {
                 refreshPage();
                 new Alert(Alert.AlertType.INFORMATION, "Healthcare updated...!").show();

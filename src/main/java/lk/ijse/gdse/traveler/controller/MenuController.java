@@ -38,6 +38,9 @@ public class MenuController {
     private Button btnManagement;
 
     @FXML
+    private Button btnHome;
+
+    @FXML
     private Button btnPayment;
 
     @FXML
@@ -62,6 +65,23 @@ public class MenuController {
     @FXML
     void btnTravelersOnAction(ActionEvent event) {
         navigateTo("/view/travelerFx.fxml");
+    }
+
+    @FXML
+    void btnHomeOnAction(ActionEvent event) {
+        try {
+            ancMenuPage.getChildren().clear();
+            AnchorPane load = FXMLLoader.load(getClass().getResource("/view/menuFx.fxml"));
+
+//          Bind the loaded FXML to all edges of the content anchorPane
+            load.prefWidthProperty().bind(ancMenuPage.widthProperty());
+            load.prefHeightProperty().bind(ancMenuPage.heightProperty());
+
+            ancMenuPage.getChildren().add(load);
+        } catch (IOException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Fail to load page!").show();
+        }
     }
 
     @FXML

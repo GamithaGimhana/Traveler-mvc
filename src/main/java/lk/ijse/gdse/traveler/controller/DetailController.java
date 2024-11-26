@@ -69,7 +69,7 @@ public class DetailController {
 
             // Optionally set properties for the popup window
             popupStage.initModality(Modality.WINDOW_MODAL); // Block interaction with other windows
-            popupStage.setResizable(false); // Make the popup not resizable
+//            popupStage.setResizable(false); // Make the popup not resizable
             popupStage.centerOnScreen(); // Center the popup on the screen
 
             // Show the popup window

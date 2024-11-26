@@ -24,6 +24,14 @@
                         <Insets bottom="10.0" top="20.0" />
                      </VBox.margin>
                   </Label>
+                  <Button fx:id="btnHome" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="554.0" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#btnHomeOnAction" style="-fx-background-radius: 5; -fx-background-color: #333333;" text="Home" textAlignment="CENTER" textFill="#FFFFFF">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
                   <Button fx:id="btnTravelers" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#btnTravelersOnAction" style="-fx-background-radius: 5; -fx-background-color: #333333;" text="Travelers" textAlignment="CENTER" textFill="#FFFFFF" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -72,7 +80,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="btnLogOut" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#btnLogOutOnAction" style="-fx-background-radius: 5; -fx-background-color: #333333;" text="Log Out" textAlignment="CENTER" textFill="#FFFFFF" VBox.vgrow="ALWAYS">
+                  <Button fx:id="btnLogOut" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#btnLogOutOnAction" style="-fx-background-radius: 5; -fx-background-color: #FF0000;" text="Log Out" textAlignment="CENTER" textFill="#FFFFFF" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -84,7 +92,7 @@
             </VBox>
             <AnchorPane fx:id="ancContent" minHeight="768.0" minWidth="816.0" style="-fx-background-color: #2C2C2C;" HBox.hgrow="ALWAYS">
                <children>
-                  <ImageView fitHeight="768.0" fitWidth="816.0" layoutX="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ImageView fitHeight="768.0" fitWidth="826.0" layoutX="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <image>
                         <Image url="@../images/context.jpg" />
                      </image>

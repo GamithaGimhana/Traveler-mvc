@@ -121,7 +121,7 @@ public class CashierController implements Initializable {
         String username = lblUsername.getText();
         String password = txtPassword.getText();
         String confirmPassword = txtConfirmPassword.getText();
-        String adminId = cmbAdminId.getSelectionModel().getSelectedItem();
+        String adminId = cmbAdminId.getValue();
 
         txtName.setStyle(txtName.getStyle() + ";-fx-border-color: #7367F0;");
         txtEmail.setStyle(txtEmail.getStyle() + ";-fx-border-color: #7367F0;");
@@ -197,7 +197,7 @@ public class CashierController implements Initializable {
         String contact = txtContact.getText();
         String username = lblUsername.getText();
         String password = txtPassword.getText();
-        String adminId = cmbAdminId.getSelectionModel().getSelectedItem();
+        String adminId = cmbAdminId.getValue();
 
         txtName.setStyle(txtName.getStyle() + ";-fx-border-color: #7367F0;");
         txtEmail.setStyle(txtEmail.getStyle() + ";-fx-border-color: #7367F0;");
